@@ -1,0 +1,1 @@
+from bridge2capital.wsgi import application

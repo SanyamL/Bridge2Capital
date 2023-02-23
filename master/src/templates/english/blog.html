@@ -1,0 +1,70 @@
+{% extends "english/main.html" %}
+
+{% load static %}
+
+{% block meta_details %}
+  <meta name="keywords" content="{{ blog.meta_tags }}" />
+  <meta name="description" content="{{ blog.meta_description }}" />
+  <meta property="og:description" content="{{ blog.meta_description }}">
+  <meta property="twitter:description" content="{{ blog.meta_description }}">
+{% endblock %}
+{% block head %}
+        <meta name="title" content="{{ blog.title }} | Bridge2Capital">
+        <meta property="og:title" content="{{ blog.title }} | Bridge2Capital">
+        <meta property="twitter:title" content="{{ blog.title }} | Bridge2Capital">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.path }}">
+    <meta property="twitter:url" content="{{ request.path }}">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="{{ blog.image.url }}">
+    <meta property="twitter:image" content="{{ blog.image.url }}">
+    
+{% endblock head %}
+
+{% block title %}
+
+{{ blog.title }} | Bridge2Capital
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 150px;">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/blogs">Blogs</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ blog.title }}</li>
+  </ol>
+</nav>
+</div>
+
+<div class="container" style="margin-top: 30px;">
+
+    <div class="col-sm-10">
+
+<h1 class="text-left">{{ blog.title }}</h1>
+
+<p class="text-left">{{ blog.date }}</p>
+
+<p class="text-left">{{ blog.by_tag }}</p>
+
+<hr>
+
+<img src="{{ blog.image.url }}" style="width: 100%; " />
+
+<br>
+
+<p>{{ blog.body|safe }}</p>
+
+{% if blog.url %}
+
+<p>Source: <a class="text-left" href="{{ blog.url }}" style="color: blue;">{{ blog.url }}</a></p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

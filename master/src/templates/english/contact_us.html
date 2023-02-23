@@ -1,0 +1,187 @@
+{% extends "english/main.html" %}
+{% load static %}
+{% block meta_details %}
+    {% for tag in meta_tags %}
+        <meta name="keywords" content="{{ tag.tags }}" />
+    {% endfor %}
+    {% for description in meta_description %}
+        <meta name="description" content="{{ description.description }}" />
+        <meta property="og:description" content="{{ description.description }}">
+        <meta property="twitter:description" content="{{ description.description }}">
+    {% endfor %}
+{% endblock %}
+{% block head %}
+    {% for i in pageTitle  %}
+        <meta name="title" content="{{ i.title }} | Bridge2Capital">
+        <meta property="og:title" content="{{ i.title }} | Bridge2Capital">
+        <meta property="twitter:title" content="{{ i.title }} | Bridge2Capital">
+    {% endfor %}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.path }}">
+    <meta property="twitter:url" content="{{ request.path }}">
+    <meta property="twitter:card" content="summary_large_image">
+    
+{% endblock head %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+<!--Banner Starts-->
+
+<section class="banner-group">
+    <div class="container">
+        <div class="banner">
+            <div class="inner-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class=" banner-content-center">
+                            <div class="heading txt-center">
+                            {% if fullname %}
+                            
+                                <h1>Hi {{ fullname }}!</h1>
+                             
+                                <p>We got your message loud and clear. We will get back to you shortly</p>
+                                
+                            {% else %}
+
+                            <h1>Let Us Know How We Can Help</h1>
+                             
+                                <p>We’re just a mail or call away</p>
+                            {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-us-group">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="contact-img-box">
+                        <div class="contact-img" style="background-image: url({% static 'images/contact-us.png' %});">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-us-form">
+                        <div class="row">
+                            <div class="screen-reader-response" aria-live="polite"></div>
+                            <form method="POST" action="{% url 'contact_us_form' %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+
+                                    <input type="text" class="form-control" aria-describedby="FullName" placeholder="Full Name"
+                                        name="fname" pattern="[a-zA-Z ]+" title="Please enter alphabets only" required autocomplete="off">
+
+                                </div>
+                                <div class="form-group">
+
+                                    <input type="tel" class="form-control" aria-describedby="ContactNumber" placeholder="Contact Number"
+                                    name="contactnumber" pattern="[0-9]{10,}" title="Please enter a valid 10-digit contact number" required autocomplete="off">
+
+                                </div>
+                                <div class="form-group">
+
+                                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email Address"
+                                    name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required autocomplete="off">
+
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder='Message' name='message'
+                                        value="{{ message }}" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-border-white bg-yellow">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Banner Ends-->
+<!--===========================================-->
+<!--Section-1-->
+<!--
+        <section class="contact-us">
+            <div class="container">
+                
+            </div>
+        </section>
+-->
+<!--Section-1-->
+{% if section1 %}
+<!--Section-2-->
+{% for section in section1 %}
+<div class="address-box">
+    <div class="container">
+        <div class="address-group">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="address-info">
+                        <h4>Address</h4>
+                        <p>{{ section.address|safe }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="address-info">
+                        <h4>Contact Details</h4>
+                        <p>{{ section.contact|safe }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="address-info">
+                        <h4>Social Media</h4>
+                        <div id="social-test">
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <a href="https://www.facebook.com/bridge2capital"><i
+                                                                class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                                                    <div class="col-md-1"> <a href="https://twitter.com/bridge2capital"><i
+                                                                class="fa fa-twitter" aria-hidden="true"></a></i></div>
+                                                    <div class="col-md-1"><a href="https://instagram.com/xtracapfintech"><i
+                                                                class="fa fa-instagram" aria-hidden="true"></i></a>
+                                                    </div>
+                                                    <div class="col-md-1"><a
+                                                            href="https://www.youtube.com/channel/UCZoO397a6NBtS2TwWv4U3fg"><i
+                                                                class="fa fa-youtube" aria-hidden="true"></a></i></div>
+                                                                <div class="col-md-1"><a
+                                                            href="https://linkedin.com/company/xtracap-fintech-india-pvt-ltd/"><i
+                                                                class="fa fa-linkedin" aria-hidden="true"></a></i></div>
+
+
+
+
+                                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+{% endfor %}
+<!--Section-2-->
+{% endif %}
+<!--Section-1-->
+<section class="cta bg-yellow border-radius-left">
+    <div class="container">
+        <div class="text-group">
+            <div class="head">
+                <h2 class="white">Own a small business? Get capital instantly.</h2>
+            </div>
+            <div class="button">
+                <a href="https://play.google.com/store/apps/details?id=com.bridge2capital&hl=en"
+                    class="btn btn-border-white yellow bg-white">Download App</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--Section-1-->
+{% endblock %}

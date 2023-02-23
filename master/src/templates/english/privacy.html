@@ -1,0 +1,48 @@
+{% extends "english/main.html" %}
+{% load static %}
+{% block meta_details %}
+{% for tag in meta_tags %}
+<meta name="keywords" content="{{ tag.tags }}" />
+{% endfor %}
+{% for description in meta_description %}
+<meta name="description" content="{{ description.description }}" />
+{% endfor %}
+{% endblock %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+
+<!--===========================================-->
+{% if section1 %}
+<!--Banner Starts-->
+{% for section in section1 %}
+<section class="banner-group">
+	    <div class="container">
+	    <div class="banner">
+			<div class="inner-banner">
+				<div class="row align-items-center">
+					<div class="col-md-12">
+						<div class=" banner-content-center">
+							<div class="heading">
+							  
+<h1>{{ section.header }}</h1>
+<p align="justify">{{ section.subheader|safe }}</p>
+
+<p>{{ section.paragraph|safe }}</p>
+                           </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+	</div>
+
+
+</section>
+{% endfor %}
+{% endif %}
+{% endblock %}

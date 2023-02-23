@@ -1,0 +1,128 @@
+{% extends "hindi/main.html" %}
+{% load static %}
+{% block meta_details %}
+{% for tag in meta_tags %}
+<meta name="keywords" content="{{ tag.tags }}" />
+{% endfor %}
+{% for description in meta_description %}
+<meta name="description" content="{{ description.description }}" />
+{% endfor %}
+{% endblock %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+{% if section1 %}
+<!--===========================================-->
+<!--Banner Starts-->
+{% for section in section1 %}
+<section class="banner-group">
+    <div class="container-fluid">
+        <div class="banner">
+            <div class="inner-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="image-group">
+                            <div class="image-box">
+                                <div class="bg-image" style="background-image: url({{ section.image.url }});"></div>
+                            </div>
+                            <div class="image-border"></div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="banner-inner banner-content">
+                            <div class="heading">
+                                <!-- wp:heading {"level":1} -->
+                                <h1>{{ section.heading_1 }}</h1>
+                                <!-- /wp:heading -->
+
+                                <!-- wp:paragraph -->
+                                <p>{{ section.subtext }}</p>
+                                <!-- /wp:paragraph -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Banner Ends-->
+<!--===========================================-->
+{% endfor %}
+{% endif %}
+{% if testimonials %}
+<!--Section-1-->
+
+<section class="testimonial pad-top0">
+    <div class="container-fluid">
+        <div class="testimonial-group">
+            <div class="row">
+                {% for testimonial in testimonials %}
+                <div class="col-md-4">
+                    <div class="testimonial-box txt-center">
+                        <div class="testimonial-info">
+                            <p>{{ testimonial.body }}</p>
+                        </div>
+                        <div class="viewer-info">
+                            <div class="testimonial-img-box">
+                                <div class="testimonial-img" style="background-image: url({{ testimonial.image.url }})">
+                                </div>
+                            </div>
+                            <h4>{{ testimonial.name }}</h4>
+                            <p>{{ testimonial.category }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+</section>
+<!--Section-1-->
+{% endif %}
+{% if section2 %}
+<!--Section-2-->
+<section class="youtube-video">
+    <div class="container">
+        <div class="head txt-center">
+            <h2>What Our Users Say</h2>
+            <p class="p-big">Bridge2Capital is redefining how small business owners see their business: Hear how from
+                they themselves.</p>
+        </div>
+        <div class="testimonial-carousel">
+            <div class="owl-carousel owl-theme">
+            {% for section in section2 %}
+                <div class="item">
+                    <div class="orange-overlay"></div>
+                    <div class="youtube-group">
+                        <p><iframe width="" height="" src="{{ section.url }}" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-2-->
+{% endif %}
+<!--Section-3-->
+                <section class="cta bg-yellow border-radius-left">
+            <div class="container">
+                <div class="text-group">
+                    <div class="head">
+                                            <h2 class="white">Get In Touch</h2>
+                                                                <p class="p-big white">Interested? Reach out to us: we’re just a mail or call away.                        </p>
+                                            </div>
+                                        <div class="button">
+                        <a href="" target="" class="btn btn-border-white yellow bg-white">Contact Us</a>
+                    </div>
+                                        
+                </div>
+            </div>
+        </section>
+                <!--Section-3-->
+{% endblock %}

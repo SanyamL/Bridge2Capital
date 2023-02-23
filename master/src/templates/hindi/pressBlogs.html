@@ -1,0 +1,112 @@
+{% extends "hindi/main.html" %}
+{% load static %}
+{% block meta_details %}
+{% for tag in meta_tags %}
+<meta name="keywords" content="{{ tag.tags }}" />
+{% endfor %}
+{% for description in meta_descriptions %}
+<meta name="description" content="{{ description.description }}" />
+{% endfor %}
+{% endblock %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% if featured_blogs %}
+  {% for blog in featured_blogs %}
+  <section class="banner-group" style="margin-top: -100px">
+    <div class="container-fluid">
+        <div class="banner">
+            <div class="inner-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="image-group">
+                            <div class="image-box">
+                                <div class="bg-image"
+                                    style="background-image: url({{ blog.image.url }});">
+                                </div>
+                            </div>
+                            <div class="image-border"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="banner-inner banner-content">
+                            <div class="heading">
+                                <h1>{{ blog.title }}
+                                </h1>
+                                <p>{{ blog.by_tag }}</p>
+                                <p>{{ blog.description }}</p>
+                                
+                            </div>
+                            <div class="banner-button">
+
+                                <a href="{% url 'blogs_ind_hindi' blog.slug %}"
+                                    class="btn btn-border">Read More </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+{% endif %}
+<section class="blog news-blog pad-top0">
+    <div class="container-fluid">
+        <div class="blog-group">
+            <div class="row">
+            {% for blog in blogs %}
+                <div class="col-md-4" style="margin-bottom: 30px;">
+                    <div class="blog-box">
+                        <div class="blog-img-box">
+                            <a href="{% url 'blogs_ind_hindi' blog.slug %}">
+                            <div class="blog-img" style="background-image: url({{ blog.image.url }})" title="{{ blog.alt_tag }}"></div>
+                            </a>
+                        </div>
+                        <div class="blog-text">
+                            <div class="blog-info">
+                                <h4>{{ blog.title }} </h4>
+                                <p>{{ blog.by_tag }}</p>
+                                <p>{{ blog.description }}</p>
+                                
+                            </div>
+                            <div class="link">
+                                
+                                <a href="{% url 'blogs_ind_hindi' blog.slug %}">Read More</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section></div>
+</div>
+<section class="cta bg-yellow border-radius-left">
+            <div class="container">
+                <div class="text-group">
+                    <div class="head">
+                                            <h2 class="white">Get In Touch</h2>
+                                                                <p class="p-big white">Interested? Reach out to us: we’re just a mail or call away.                        </p>
+                                            </div>
+                                        <div class="button">
+                        <a href="" target="" class="btn btn-border-white yellow bg-white">Contact Us</a>
+                    </div>
+                                        
+                </div>
+            </div>
+        </section>
+{% endblock %}

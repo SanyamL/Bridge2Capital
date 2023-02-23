@@ -1,0 +1,104 @@
+{% extends "english/main.html" %}
+{% load static %}
+{% block meta_details %}
+{% for tag in meta_tags %}
+<meta name="keywords" content="{{ tag.tags }}" />
+{% endfor %}
+{% for description in meta_description %}
+<meta name="description" content="{{ description.description }}" />
+{% endfor %}
+{% endblock %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+<!--===========================================-->
+<!--===========================================-->
+<!--Banner Starts-->
+<section class="banner-group pad-btm0">
+    <div class="container">
+        <div class="banner">
+            <div class="inner-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class=" banner-content-center">
+                            <div class="heading txt-center faq-head">
+                                <!-- wp:heading {"level":1} -->
+                                <h1>Got Questions? We Have Answers</h1>
+                                <!-- /wp:heading -->
+
+                                <!-- wp:paragraph -->
+                                <p>At Xtracap India, we take special care to give you a positive business growth
+                                    experience all throughout the way. Please feel free to go through these commonly
+                                    asked questions, but if you don’t find what you’re looking for, don’t hesitate to
+                                    drop us a mail to&nbsp;<a
+                                        href="http://plantesting.website/html/bridge2capital/faq.html#">info@xtracapindia.com.</a>
+                                    We’ll be happy to clarify any query you may have.</p>
+                                <!-- /wp:paragraph -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Banner Ends-->
+<!--===========================================-->
+{% if section1 %}
+<!--Section-1-->
+<div class="benefits">
+    <div class="container">
+        <div class="">
+            <div class="benefits-accordian-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="faq-accordian">
+                            <ul id="accordion" class="accordion">
+                            {% for section in section1 %}
+                                <li class="card">
+                                    <div class="card-header">
+                                        <span class="rotate-icon">
+                                            <img src="https://bridge2capital.com/wp-content/themes/b2cap/assets/img/arrow-accordian.png"
+                                                ;="">
+                                        </span>
+                                        <div class="card-head-text">
+                                            <p class="p-big yellow">{{ section.question }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" style="display: none;">
+                                        <p>{{ section.answer|safe }}</p>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Section-1-->
+<!--Section-1-->
+{% endif %}
+<br>
+<br>
+<section class="cta bg-yellow border-radius-left">
+    <div class="container">
+        <div class="text-group">
+            <div class="head">
+                <h2 class="white">Own a small business? Get capital instantly.</h2>
+            </div>
+            <div class="button">
+                <a href="https://play.google.com/store/apps/details?id=com.bridge2capital&hl=en" target="_blank"
+                    class="btn btn-border-white yellow bg-white">Download app</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--Section-1-->
+{% endblock %}

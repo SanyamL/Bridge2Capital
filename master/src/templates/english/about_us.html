@@ -1,0 +1,415 @@
+{% extends "english/main.html" %}
+{% load static %}
+{% block meta_details %}
+    {% for tag in meta_tags %}
+        <meta name="keywords" content="{{ tag.tags }}" />
+    {% endfor %}
+    {% for description in meta_description %}
+        <meta name="description" content="{{ description.description }}" />
+        <meta property="og:description" content="{{ description.description }}">
+        <meta property="twitter:description" content="{{ description.description }}">
+    {% endfor %}
+{% endblock %}
+{% block head %}
+    {% for i in pageTitle  %}
+        <meta name="title" content="{{ i.title }}">
+        <meta property="og:title" content="{{ i.title }}">
+        <meta property="twitter:title" content="{{ i.title }}">
+    {% endfor %}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/about-us">
+    <meta property="twitter:url" content="/about-us">
+    <meta property="twitter:card" content="summary_large_image">
+    {% for section in section1 %}
+        <meta property="og:image" content="{{ section.image.url }}">
+        <meta property="twitter:image" content="{{ section.image.url }}">
+    {% endfor %}
+    
+{% endblock head %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+<!--===========================================-->
+{% if section1 %}
+<!--Banner Starts-->
+{% for section in section1 %}
+<section class="banner-group">
+    <div class="container-fluid">
+        <div class="banner">
+            <div class="inner-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="image-group">
+                            <div class="image-box">
+                                <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                                </div>
+                            </div>
+                            <div class="image-border"></div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="banner-inner banner-content">
+                            <div class="heading">
+                                <!-- wp:heading {"level":1} -->
+                                <h1>{{ section.header }}</h1>
+                                <!-- /wp:heading -->
+
+                                <!-- wp:paragraph -->
+                                <p>{{ section.paragraph1 }}</p>
+                                <!-- /wp:paragraph -->
+
+                                <!-- wp:paragraph -->
+                                <p>{{ section.paragraph2 }}</p>
+                                <!-- /wp:paragraph -->
+
+                                <!-- wp:paragraph -->
+                                <p>{{ section.paragraph3 }}</p>
+                                <!-- /wp:paragraph -->
+
+                            </div>
+                            <div class="banner-button">
+                                <a href="{{ section.button1_url }}" class="btn btn-border"
+                                    target="">{{ section.button1_text }} </a>
+                                {% if section.button2_text %}
+                                <a href="{{ section.button2_url }}" class="btn btn-orange"
+                                    target="">{{ section.button2_text }}</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+<!--Banner Ends-->
+{% endif %}
+<!--===========================================-->
+{% if section2 %}
+<!--Section-1-->
+{% for section in section2 %}
+<section class="about-text bg-green border-radius-left">
+    <div class="container">
+        <div class="text-group">
+            <div class="text-info">
+                <div class="">
+                    <h2 class="white">{{ section.header }}</h2>
+                </div>
+
+                <p class="white">{{ section.paragraph }}</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endfor %}
+<!--Section-1-->
+{% endif %}
+{% if section3 %}
+<!--Section-2-->
+{% for section in section3 %}
+<section class="our-team">
+    <div class="container-fluid">
+        <div class="photo-text-group">
+            <div class="row align-items-center">
+                <div class="col-md-5 col-sm-6">
+                    <div class="image-group">
+                        <div class="image-box">
+                            <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                            </div>
+                            <div class="owner-name bg-orange">
+                                <div class="owner-1">
+                                    <h4 class="white">{{ section.person1_name }}</h4>
+                                    <p class="white">{{ section.person1_designation }}</p>
+                                </div>
+                                {% if section.person2_name %}
+                                <div class="owner-2">
+                                    <h4 class="white">{{ section.person2_name }}</h4>
+                                    <p class="white">{{ section.person2_designation }}</p>
+                                </div>
+                                {% endif %}
+                                {% if section.person3_name %}
+                                <div class="owner-2">
+                                    <h4 class="white">{{ section.person3_name }}</h4>
+                                    <p class="white">{{ section.person3_designation }}</p>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="image-border"></div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                    <div class="photo-content">
+                        <div class="heading">
+                            <h2>{{ section.header }}</h2>
+                            <p>{{ section.paragraph1 }}</p>
+                            <p>{{ section.paragraph2 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% if section4 %}
+            <div class="our-story-text">
+                <div class="row">
+                    {% for section in section4 %}
+                    <div class="col-md-12">
+                        <div class="photo-content">
+                            <div class="heading">
+                                <h3>{{ section.header }}</h3>
+                                <p>{{ section.paragraph|safe }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!--Section-2-->
+{% if section5 %}
+<!--Section-3-->
+<section class="how-it-work upcoming-product bg-green-light">
+    <div class="container">
+        <div class="head txt-center">
+            <h2>Our Products</h2>
+            <p class="p-big">Simple and easy to use technology to increase turnover</p>
+        </div>
+    </div>
+    <div class="">
+
+        <div class="work-carousel">
+            <div class="owl-carousel owl-theme">
+                {% for section in section5 %}
+                <div class="item">
+                    <div class="work-group">
+                        <div class="row ">
+                            <div class="col-md-5">
+                                <div class="work-image-group">
+                                    <img src="{{ section.image.url }}">
+                                </div>
+
+                            </div>
+                            <div class="col-md-7">
+                                <div class="work-text-group">
+                                    <div class="steps">
+                                        <p class="p-big">{{ section.step }}</p>
+                                    </div>
+                                    <div class="work-text">
+                                        <div class="work-info">
+                                            <p class="p-big">{{ section.description }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="carousel-arrow">
+                <div class="leftarrow">
+                    <img src="{% static 'images/arrow-left.png' %}">
+                </div>
+                <div class="rightarrow">
+                    <img src="{% static 'images/arrow-right.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-3-->
+{% endif %}
+
+
+<!--Section-5-->
+<section class="pad-top0">
+    <div class="container-fluid">
+        <div class="head txt-center">
+            <h2>How Are We Transforming Small Businesses?</h2>
+        </div>
+        <div class="transform-list">
+            <ul>
+
+                <li>
+                    <a href="javascript:void(0)">
+                        <p>By encouraging cashless transactions with clear incentives.</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0)">
+                        <p>By rewarding on-time repayment behaviour with increase in credit limit. </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0)">
+                        <p>By guiding our customers to instill credit discipline via FHC.</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0)">
+                        <p>By sharing business concepts with small business owners. </p>
+                    </a>
+                </li>
+
+                <li class="hidden">
+                    <a href="javascript:void(0)">
+                        <p>By providing easy-to-use technology to shopkeepers to run their business efficiently.</p>
+                    </a>
+                </li>
+                <div class="button txt-center more">
+                    <a href="javascript:void(0)" class="btn btn-orange" onclick="load_more();">Load More </a>
+                </div>
+                <div class="button txt-center less">
+                    <a href="javascript:void(0)" class="btn btn-orange" onclick="load_less();">Load Less </a>
+                </div>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--Section-5-->
+{% if section6 %}
+<!--Section-6-->
+<section class="business-modal pad-top0">
+    <div class="left-right">
+        {% for section in section6 %}
+        <div class="photo-info-group bg-green-light pad">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-5 col-sm-6">
+                        <div class="image-group">
+                            <div class="image-box">
+                                <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                                </div>
+                            </div>
+                            <div class="image-border"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-6">
+                        <div class="photo-content">
+                            <div class="heading">
+                                <h3>{{ section.header }}</h3>
+                                <p>{{ section.paragraph|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} <div class="photo-info-group bg-orange-light pad">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-5 col-sm-6">
+                        <div class="image-group">
+                            <div class="image-box">
+                                <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                                </div>
+                            </div>
+                            <div class="image-border"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-6">
+                        <div class="photo-content">
+                            <div class="heading">
+                                <h3>{{ section.header }}</h3>
+                                <p>{{ section.paragraph|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> {% endcomment %}
+          {% endfor %}
+    </div>
+</section>
+<!--Section-6-->
+{% endif %}
+{% if section7 %}
+<!--Section-7-->
+<div class="container-fluid" style="margin-bottom: 30px;">
+    <div class="row">
+        <div class="col-12">
+            <h2>What Our Customers Say</h2>
+            <p class="p-big">Bridge2Capital is redefining how small business owners see their business. Hear how from
+                they themselves.</p>
+        </div>
+        
+    </div>
+    <div class="container-fluid effect8">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for testimonial in section7 %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                    {% else %}
+                    <div class="carousel-item">
+                        {% endif %}
+                        <div class="row" style="margin-top: 30px; margin-bottom: 30px; height: 20rem;">
+                            <div class="col-12">
+                                <img src="{{ testimonial.image.url }}" style="border-radius: 50%; float: left;"
+                                    width=125 height=125 />
+                            </div>
+                            <div class="col-12" style="margin-top: 15px;">
+                                <h3 style="float: left; color: #eb7f25;">{{ testimonial.name }}</h3>
+                            </div>
+                            <div class="col-12" style="margin-top: -20px;">
+                                <h3 style="float: left;"><b>{{ testimonial.category }}</b></h3>
+                            </div>
+                            <div class="col-12" style="margin-top: -10px;">
+                                <p style="float: left;">{{ testimonial.body }}.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <a class="carousel-control-prev banner-grp" href="#carouselExampleControls" role="button"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"><img
+                        src="{% static 'images/arrow-left.png' %}" /></span>
+            </a>
+            <a class="carousel-control-next banner-grp" href="#carouselExampleControls" role="button"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"><img
+                        src="{% static 'images/arrow-right.png' %}" /></span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+<!--Section-7-->
+{% endif %}
+
+<!--Section-1-->
+<section class="cta bg-yellow border-radius-left">
+    <div class="container">
+        <div class="text-group">
+            <div class="head">
+                <h2 class="white">Own a small business? Get capital instantly.</h2>
+            </div>
+            <div class="button">
+                <a href="https://play.google.com/store/apps/details?id=com.bridge2capital&hl=en"
+                    class="btn btn-border-white yellow bg-white">Download App</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,591 @@
+{% extends "english/main.html" %}
+{% load static %}
+{% block meta_details %}
+{% for tag in meta_tags %}
+<meta name="keywords" content="{{ tag.tags }}" />
+{% endfor %}
+{% for description in meta_descriptions %}
+<meta name="description" content="{{ description.description }}" />
+{% endfor %}
+{% endblock %}
+{% block head %}
+<!-- Bridge2Capital short-term small business loan -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LoanOrCredit",
+        "name": "Bridge2Capital small business short-term loan",
+        "loanTerm": {
+            "@type": "QuantitativeValue",
+            "value": "",
+            "unitCode": ""
+        },
+        "annualPercentageRate": [{
+                "@type": "QuantitativeValue",
+                "name": "variable interest rates",
+                "minValue": "21",
+                "maxValue": "27"
+            },
+            {
+                "@type": "QuantitativeValue",
+                "name": "fixed interest rates",
+                "minValue": "21",
+                "maxValue": "27"
+            }
+        ],
+        "amount": [{
+                "@type": "MonetaryAmount",
+                "name": "working capital assistance for small business",
+                "value": "100000",
+                "currency": "INR"
+            },
+            {
+                "@type": "MonetaryAmount",
+                "name": "short-term loan for working capital of small business",
+                "value": "500000",
+                "currency": "INR"
+            }
+        ]
+    }
+</script>
+{% endblock head %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+<!--===========================================-->
+<!--Banner Starts-->
+{% for section in section1 %}
+<section class="banner-group">
+    <div class="container-fluid">
+        <div class="banner banner-main">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-sm-6">
+                    <div class="banner-home banner-content">
+
+                        <div class="heading">
+                            <h1>{{ section.heading_1 }}</h1>
+
+                            <h1>{{ section.heading_2 }}</h1>
+
+                            <p>{{ section.subtext }}</p>
+                        </div>
+
+                        <div class="banner-button">
+                            <a href="{{ section.btn1_url }}" class="btn btn-border"
+                                target="">{{ section.btn1_text }}</a>
+                            <a href="{{ section.btn2_url }}" class="btn btn-orange"
+                                target="">{{ section.btn2_text }}</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6">
+                    <div class="image-group">
+                        <div class="image-box">
+                            <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                            </div>
+                        </div>
+                        <div class="image-border"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Banner Ends-->
+<!--===========================================-->
+{% endfor %}
+{% if section2 %}
+<!--Section-2-->
+{% for section in section2 %}
+<section class="about-text bg-orange border-radius-left">
+    <div class="container">
+        <div class="text-group">
+            <div class="text-info">
+                <p class="white">{{ section.heading_1 }}</p>
+                {% if section.heading_2 %}
+                <p class="white font-bold">{{ section.heading_2 }}</p>
+                {% endif %}
+                {% if section.heading_3 %}
+                <p class="white">{{ section.heading_3 }}</p>
+                {% endif %}
+            </div>
+            <div class="button">
+                <a href="{{ section.url }}" target="" class="btn btn-border-white">{{ section.btn_text }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+<!--Section-2-->
+{% endif %}
+{% if section3 %}
+<!--Section-3-->
+<section class="payment-steps bg-orange-light mar" style="background-image: url({% static 'images/arrow-down.png' %});">
+    <div class="container">
+        <div class="head txt-center">
+            <h2>Bridge2Pay - How It Works</h2>
+            <p class="p-big">Shopkeepers with credit limit approved by Bridge2Capital can also avail the feature of
+                using a unique QR code to collect online payments from their customers directly into their Bank loan
+                account.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="payment-carousel" style="background-image: url({% static 'images/arrow-down.png' %});">
+            <div class="owl-carousel owl-theme">
+                {% for section in section3 %}
+                <div class="item">
+                    <div class="payment-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-5">
+                                <div class="work-image-group">
+                                    <img src="{{ section.image.url }}">
+                                </div>
+
+                            </div>
+                            <div class="col-md-7">
+                                <div class="work-text-group">
+                                    <div class="work-text">
+                                        <div class="work-info">
+                                            <span>{{ section.step_text }}</span>
+                                            <p class="p-big">{{ section.image_text }}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="carousel-arrow">
+                <div class="leftarrow">
+                    <img src="{% static 'images/arrow-left.png'%}">
+                </div>
+                <div class="rightarrow">
+                    <img src="{% static 'images/arrow-right.png'%}">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+<!--Section-3-->
+{% endif %}
+{% if section4 %}
+<!--Section-4-->
+<section class="how-it-work bg-green-light mar">
+    <div class="container">
+        <div class="head txt-center">
+            <h2> How Bridge2Capital Works</h2>
+            <p class="p-big">Make the most of a safe, quick and easy-to-use technology to increase business turnover.
+            </p>
+        </div>
+    </div>
+    <div class="">
+        <div class="work-carousel">
+            <div class="owl-carousel owl-theme owl-loaded owl-drag">
+                {% for section in section4 %}
+                <div class="item">
+                    <div class="work-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-7">
+                                <div class="work-image-group">
+                                    <img src="{{ section.image.url }}">
+                                </div>
+
+                            </div>
+                            <div class="col-md-5">
+                                <div class="work-text-group">
+                                    <div class="steps">
+                                        <p class="p-big">{{ section.step_text }}</p>
+                                    </div>
+                                    <div class="work-text">
+                                        <div class="work-info">
+                                            <p class="p-big">{{ section.image_text }}</p>
+                                            <div class="link">
+                                                <a href="{{ section.url }}">{{ section.url_text }}</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+            <div class="carousel-arrow">
+                <div class="leftarrow">
+                    <img src="{% static 'images/arrow-left.png' %}">
+                </div>
+                <div class="rightarrow">
+                    <img src="{% static 'images/arrow-right.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-4-->
+{% endif %}
+{% if section5_c1 %}
+<!--Section-5-->
+<section class="benefits pad-top0">
+    <div class="container">
+        <div class="head txt-center">
+            <h2>Benefits</h2>
+            <p class="p-big">Safe, simple, easy - Bridge2Capital is the best digital portal to increase your profits.
+            </p>
+        </div>
+        <div class="">
+            <div class="benefits-accordian-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="benefits-accordian">
+                            <ul id="accordion" class="accordion">
+                                {% for section in section5_c1 %}
+                                <li class="card">
+                                    <div class="card-header">
+                                        <div class="card-head-text">
+                                            <span class="rotate-icon">
+                                                <img src="{% static 'images/arrow-accordian.png' %}">
+                                            </span>
+                                            <p class="p-big yellow">{{ section.header }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" style="display: none;">
+                                        <p>{{ section.description }}</p>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% if section5_c2 %}
+                    <div class="col-md-6">
+                        <div class="benefits-accordian">
+                            <ul id="accordion1" class="accordion">
+                                {% for section in section5_c2 %}
+                                <li class="card">
+                                    <div class="card-header">
+                                        <div class="card-head-text">
+                                            <span class="rotate-icon">
+                                                <img src="{% static 'images/arrow-accordian.png' %}" ;="">
+                                            </span>
+                                            <p class="p-big yellow">{{ section.header }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" style="display: none;">
+                                        <p>{{ section.description }}</p>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-5-->
+{% endif %}
+{% if section6 %}
+<!--Section-6-->
+<section class="features pad-top0">
+    <div class="container-fluid">
+        <div class="head txt-center">
+            <h2>Why Bridge2Capital?</h2>
+            <p class="p-big">Xtracap India offers small business owners a handy portal to increase their business turnover in a
+                short time, combining the everlasting value of trust with modern-day technology.</p>
+        </div>
+
+        <div class="feature-group">
+            <div class="row">
+                {% for section in section6 %}
+                <div class="col-md">
+                    <div class="feature-box">
+                        <div class="icon-box">
+                            <img src="{{ section.image.url }}">
+                        </div>
+                        <div class="feature-text">
+                            <h4>{{ section.heading }}</h4>
+                            <p>{{ section.text }}</p>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-6-->
+{% endif %}
+{% if testimonials %}
+<!--Section-7-->
+<div class="container-fluid" style="margin-bottom: 30px;">
+    <div class="row">
+        <div class="col-12">
+            <h2>What Our Customers Say</h2>
+            <p class="p-big">Bridge2Capital is redefining how small business owners see their business. Hear it directly from them.</p>
+        </div>
+
+    </div>
+    <div class="container-fluid effect8">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for testimonial in testimonials %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                    {% else %}
+                    <div class="carousel-item">
+                        {% endif %}
+                        <div class="row" style="margin-top: 30px; margin-bottom: 30px; height: 20rem;">
+                            <div class="col-12">
+                                <img src="{{ testimonial.image.url }}" style="border-radius: 50%; float: left;"
+                                    width=125 height=125 />
+                            </div>
+                            <div class="col-12" style="margin-top: 15px;">
+                                <h3 style="float: left; color: #eb7f25;">{{ testimonial.name }}</h3>
+                            </div>
+                            <div class="col-12" style="margin-top: -20px;">
+                                <h3 style="float: left;"><b>{{ testimonial.category }}</b></h3>
+                            </div>
+                            <div class="col-12" style="margin-top: -10px;">
+                                <p style="float: left;">{{ testimonial.body }}.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <a class="carousel-control-prev banner-grp" href="#carouselExampleControls" role="button"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"><img
+                        src="{% static 'images/arrow-left.png' %}" /></span>
+            </a>
+            <a class="carousel-control-next banner-grp" href="#carouselExampleControls" role="button"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"><img
+                        src="{% static 'images/arrow-right.png' %}" /></span>
+            </a>
+
+        </div>
+    </div>
+</div>
+<!--Section-7-->
+{% endif %}
+<!--Partnership Section-->
+<div id="partnership"></div>
+<div class="container text-center" style="margin-top: 9%; margin-bottom: 9%;">
+    <h2>
+        Partnerships
+    </h2>
+    <p>
+        We at Xtracap Fintech India Pvt Ltd, value our strategic partnerships as one of the core pillars and at the
+        center of our growth strategy. Our partnerships with different NBFCs, software solution providers and other
+        key influencers in the MSME value chain, combined with thought leadership, a deep financial understanding
+        and technical expertise enables us with the drive to work for BHARAT.
+    </p>
+    <p>
+        We have built a robust, industry leading, digital financial solution engine for small businesses, which has
+        resulted in tremendous success. Therefore, in our endeavor for making MSMEs financially strong and inclusive
+        we are looking forward to building long-lasting partnerships along the way.
+    </p>
+    <p>
+        <button type="button" class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            style="margin-top: 3%;">
+            Partner With Us
+        </button>
+    </p>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        style="margin-top: 10%; margin-bottom: 10%;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Partner With Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control" name="fullName" placeholder="Full Name"
+                                    required>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="mobileNumber"
+                                    placeholder="Contact Number">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="email" class="form-control" name="email" placeholder="Official Email ID"
+                                    required>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="company" placeholder="Organisation Name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control" name="message" placeholder="Your Message for us"
+                                    required>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-success" value="Submit">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Partnership Section-->
+
+{% if section7 %}
+<!--Section-8-->
+<section class="brand bg-green border-radius-right">
+    <div class="">
+        <div class="head">
+            <p class="p-big white">Incubated by </p>
+        </div>
+        <div class="brand-carousel-1">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="brand-group txt-center">
+                        <img src="{% static 'images/ciieco.png' %}" alt="CIIE Co">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head">
+            <p class="p-big white">Partnering with</p>
+        </div>
+        <div class="brand-carousel">
+            <div class="owl-carousel owl-theme">
+                {% for section in section7 %}
+                <div class="item">
+                    <div class="brand-group txt-center">
+                        <img src="{{ section.image.url }}" alt="{{ section.name }}">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-8-->
+{% endif %}
+{% if section8 %}
+<!--Section-9-->
+<section class="youtube-video">
+    <div class="container">
+        <div class="head txt-center">
+            <h2>What Our Users Say</h2>
+            <p class="p-big">Bridge2Capital is redefining how small business owners see their business: Hear it directly from them.</p>
+        </div>
+        <div class="youtube-carousel">
+
+            <div class="owl-carousel owl-theme">
+                {% for section in section8 %}
+                <div class="item">
+                    <div class="youtube-group">
+                        <p><iframe style="height: 350px;" src="{{ section.url }}" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="carousel-arrow">
+                <div class="leftarrow">
+                    <img src="{% static 'images/arrow-left.png' %}">
+                </div>
+                <div class="rightarrow">
+                    <img src="{% static 'images/arrow-right.png' %}">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!--Section-9-->
+{% endif %}
+{% if news %}
+<!--Section-10-->
+<section class="blog pad-top0">
+    <div class="container-fluid">
+        <div class="head txt-center">
+            <h2>The Latest In FinTech</h2>
+            <p class="p-big">Invaluable updates and insights to keep you in the know.</p>
+        </div>
+        <div class="blog-group">
+            <div class="row">
+                {% for new in news %}
+                <div class="col-md-4">
+                    <div class="blog-box">
+                        <div class="blog-img-box">
+                            <div class="blog-img" style="background-image: url({{ new.image.url }})">
+                            </div>
+                        </div>
+                        <div class="blog-text">
+                            <div class="blog-info">
+                                <h4>{{ new.title }}
+                                </h4>
+                                <!-- wp:paragraph -->
+                                <p>{{ new.description }}</p>
+                                <!-- /wp:paragraph -->
+                            </div>
+                            <div class="link">
+                                <a href="{% url 'news_ind_english' new.slug %}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="button">
+                    <a href="/news" target="" class="btn btn-orange">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-10-->
+{% endif %}
+<!--Section-11-->
+<section class="cta bg-yellow border-radius-left">
+    <div class="container">
+        <div class="text-group">
+            <div class="head">
+                <h2 class="white">Get In Touch</h2>
+                <p class="p-big white">Interested? Reach out to us: we’re just a mail or call away. </p>
+            </div>
+            <div class="button">
+                <a href="/contact-us" target="" class="btn btn-border-white yellow bg-white">Contact Us</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--Section-11-->
+{% endblock %}

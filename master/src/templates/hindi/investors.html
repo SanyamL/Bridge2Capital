@@ -1,0 +1,315 @@
+{% extends "hindi/main.html" %}
+{% load static %}
+{% block meta_details %}
+{% for tag in meta_tags %}
+<meta name="keywords" content="{{ tag.tags }}" />
+{% endfor %}
+{% for description in meta_description %}
+<meta name="description" content="{{ description.description }}" />
+{% endfor %}
+{% endblock %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+<!--===========================================-->
+{% if fullname %}
+<h1>Thanks! We got your entry</h1>
+{% endif %}
+{% if section1 %}
+<!--Banner Starts-->
+{% for section in section1 %}
+<section class="banner-group">
+    <div class="container-fluid">
+        <div class="banner">
+            <div class="inner-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="image-group">
+                            <div class="image-box">
+                                <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                                </div>
+                            </div>
+                            <div class="image-border"></div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="banner-inner banner-content">
+                            <div class="heading">
+                                <h1>{{ section.header }}</h1>
+                                <p class="p-big font-bold">{{ section.paragraph }}</p>
+                                <p>{{ section.subtext|safe }}</p>
+                            </div>
+                            <div class="banner-button">
+                                <a href="{{ section.button_url }}" class="btn btn-border"
+                                    target="">{{ section.button_text }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+<!--Banner Ends-->
+{% endif %}
+<!--===========================================-->
+{% if section2 %}
+<!--Section-1-->
+{% for section in section2 %}
+<section class="about-text bg-orange border-radius-left">
+    <div class="container">
+        <div class="text-group">
+            <div class="text-info">
+                <div class="">
+                    <h2 class="white">{{ section.header }}</h2>
+                </div>
+                <p class="white">{{ section.paragraph|safe }}</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endfor %}
+<!--Section-1-->
+{% endif %}
+{% if section3 %}
+<!--Section-2-->
+{% for section in section3 %}
+<section class="our-team">
+    <div class="container-fluid">
+        <div class="photo-text-group">
+            <div class="row align-items-center">
+                <div class="col-md-5 col-sm-6">
+                    <div class="image-group">
+                        <div class="image-box">
+                            <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                            </div>
+                        </div>
+                        <div class="image-border"></div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                    <div class="photo-content">
+                        <div class="heading">
+                            <h2>{{ section.header }}</h2>
+                            <p>{{ section.paragraph|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+<!--Section-2-->
+{% endif %}
+{% if section4 %}
+<!--Section-3-->
+{% for section in section4 %}
+<div class="our-approach">
+    <div class="container">
+        <div class="plain-text txt-center">
+            <h2>{{ section.header }}</h2>
+            <p class="">{{ section.paragraph|safe }}</p>
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+<!--Section-3-->
+{% endif %}
+{% if section5 %}
+<!--Section-4-->
+<section class="business-modal">
+    <div class="container-fluid">
+        <div class="head txt-center">
+            <h2>हमारा बिज़नेस मॉडल</h2>
+        </div>
+    </div>
+    <div class="left-right">
+        {% for section in section5 %}
+        <div class="photo-info-group bg-green-light pad">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-5 col-sm-6">
+                        <div class="image-group">
+                            <div class="image-box">
+                                <div class="bg-image" style="background-image: url({{ section.image.url }});">
+                                </div>
+                            </div>
+                            <div class="image-border"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-6">
+                        <div class="photo-content">
+                            <div class="heading">
+                                <h3>{{ section.header }}</h3>
+                                <p>{{ section.paragraph|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!--Section-4-->
+{% endif %}
+{% if section6 %}
+<!--Section-7-->
+<div class="customer-feedback pad-top0">
+    <div class="container">
+        <div class="head txt-center">
+            <h2>What Our Customers Say</h2>
+            <p class="p-big">Bridge2Capital is redefining how small business owners see their business. Hear how from
+                they themselves.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="customer-carousel">
+            <div class="owl-carousel owl-theme owl-loaded owl-drag">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage"
+                        style="transform: translate3d(-1400px, 0px, 0px); transition: all 0.25s ease 0s; width: 5600px;">
+                        {% for section in section6 %}
+                        <div class="owl-item cloned" style="width: 690px; margin-right: 10px;">
+                            <div class="item" style="position:relative; top:-20px;">
+                                <div class="testimonial-img-box">
+                                    <div class="testimonial-img"
+                                        style="background-image: url({{ section.image.url }});">
+                                    </div>
+                                </div>
+                                <center>
+                                    <h4>{{ section.name }}</h4>
+                                    <p>{{ section.category }}</p>
+                                </center>
+                                <div class="customer-group txt-center">
+                                    <p>{{ section.body }}.</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-arrow">
+                <div class="leftarrow">
+                    <img src="{% static 'images/arrow-left.png' %}">
+                </div>
+                <div class="rightarrow">
+                    <img src="{% static 'images/arrow-right.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Section-7-->
+{% endif %}
+
+
+
+{% if news %}
+<!--Section-10-->
+<section class="blog pad-top0">
+    <div class="container-fluid">
+        <div class="head txt-center">
+            <h2>The Latest In FinTech</h2>
+            <p class="p-big">Invaluable updates and insights to keep you in the know.</p>
+        </div>
+        <div class="blog-group">
+            <div class="row">
+                {% for new in news %}
+                <div class="col-md-4">
+                    <div class="blog-box">
+                        <div class="blog-img-box">
+                            <div class="blog-img" style="background-image: url({{ new.image.url }})">
+                            </div>
+                        </div>
+                        <div class="blog-text">
+                            <div class="blog-info">
+                                <h4>{{ new.title }}
+                                </h4>
+                                <!-- wp:paragraph -->
+                                <p>{{ new.description }}</p>
+                                <!-- /wp:paragraph -->
+                            </div>
+                            <div class="link">
+                                <a href="{{ new.url }}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="button">
+                    <a href="/press" target="" class="btn btn-orange">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-10-->
+{% endif %}
+
+
+<!--Section-2-->
+<section class="contact pad-top0">
+    <div class="container">
+        <div class="head txt-center">
+        {% if fullname %}
+        <br>
+        <br>
+        <h2>Thanks - {{ fullname }}!</h2>
+            <p class="p-big">We got your message, loud and clear. We will get back to you shortly.</p>
+
+        {% else %}
+            <h2>संपर्क करें</h2>
+            <p class="p-big">रुचि है? हम सिर्फ एक मेल या कॉल दूर हैं।</p>
+        {% endif %}
+        </div>
+        <div class="contact-form-group">
+            <div class="contact-form">
+
+                <div role="form" class="wpcf7" id="wpcf7-f521-p334-o1" lang="en-US" dir="ltr">
+                    <div class="screen-reader-response" aria-live="polite"></div>
+                    <form method="POST" action="{% url 'investors_form' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" aria-describedby="FullName" placeholder="पूरा नाम"
+                                name='fname' value="{{ fname }}" pattern="[a-zA-Z ]+" title="Please enter alphabets only" required autocomplete="off">
+
+                        </div>
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" aria-describedby="FullName"
+                                placeholder="मोबाइल नंबर" name='contactnumber' value="{{ contactnumber }}" pattern="[0-9]{10,}" title="Please enter a valid 10-digit contact number" required autocomplete="off">
+
+                        </div>
+                        <div class="form-group">
+
+                            <input type="email" class="form-control" aria-describedby="emailHelp"
+                                placeholder="ईमेल" name='email' value="{{ email }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required autocomplete="off">
+
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder='संदेश' name='message'
+                                value="{{ message }}" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-border-white bg-yellow">जमा करें</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--Section-2-->
+<!--Section-1-->
+<!--Section-1-->
+{% endblock %}

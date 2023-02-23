@@ -1,0 +1,111 @@
+{% extends "hindi/main.html" %}
+{% load static %}
+{% block meta_details %}
+{% for tag in meta_tags %}
+<meta name="keywords" content="{{ tag.tags }}" />
+{% endfor %}
+{% for description in meta_description %}
+<meta name="description" content="{{ description.description }}" />
+{% endfor %}
+{% endblock %}
+{% block title %}
+{% for i in pageTitle  %}
+{{ i.title }}
+{% endfor %}
+{% endblock %}
+{% block content %}
+<!--Banner Starts-->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 100px;">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/slider-1.jpg' %}" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/slider-2.jpg' %}" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/slider-4.jpg' %}" class="d-block w-100">
+      </div>
+    </div>
+    <a class="carousel-control-prev banner-grp" href="#myCarousel" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next banner-grp" href="#myCarousel" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+  </div>
+<!--Banner Ends-->
+{% if section3 %}
+<section class="banner-group" style="margin-top: -10px; margin-bottom: 0px;">
+  <div class="container-fluid" style="margin-top: 0px;">
+    <div class="head txt-center">
+      <h1>उत्पाद की विशेषताएँ</h1>
+      <p>ब्रिज2कैपिटल MSME लोन की सहायता से आपके छोटे व्यवसाय को विकसित करने की दिशा में काम कर रहा है। हम आपको उपयुक्त कार्यशील पूंजी सहायता प्रदान करते हैं जो आपके व्यवसायिक आवश्यकताओं के लिए ज़रूरी हैं।</P>
+    </div>
+  </div>
+  <div class="container-fluid" style="margin-top: -50px;">
+    <div class="row align-items-center">
+      {% for section in section3 %}
+      <div class="col-md-3">
+        <div class="card-bootstrap" style="width: 100%; margin-top:25px; background-color: #FAFAFA; height: 18rem;">
+          <center>
+            <img src="{{ section.icon.url }}" alt="..." width="50" height="50"
+              style="margin-top: 20px; margin-bottom: 20px;" /></center>
+          <div class="card-bootstrap-body">
+            <h5 class="card-bootstrap-title">{{ section.header|safe }}</h5>
+            <p class="card-bootstrap-text">{{ section.paragraph|safe }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% if section4 %}
+      {% for section in section4 %}
+      <div class="col-md-3">
+        <div class="card-bootstrap" style="width: 100%; margin-top:25px; background-color: #FAFAFA; height: 18rem;">
+            <center>
+            <img src="{{ section.icon.url }}" alt="..." width="50" height="50"
+              style="margin-top: 20px; margin-bottom: 20px;" /></center>
+          <div class="card-bootstrap-body">
+              
+            <h5 class="card-bootstrap-title" style="text-align: center;">{{ section.header|safe }}</h5>
+            <center><p class="card-bootstrap-text"><button type="button" class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  {{ section.button }}
+</button></p></center>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 20px; margin-bottom: 110px;">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ section.header|safe }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="max-height: 250px;">
+        {{ section.paragraph|safe }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+<!--Section-6-->
+<script>
+$('a[class^=carousel-control-]').click(function (event) {
+    event.preventDefault();
+});
+</script>
+{% endblock %}
